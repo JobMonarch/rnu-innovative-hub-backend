@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/auth.routes.js";
 import fakeAuth from "./middleware/fakeAuth.js";
 import usersRoutes from "./routes/users.routes.js";
+import aiRoutes from "./routes/ai.routes.js";
 
 
 dotenv.config();
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use("/api/v1/auth", authRoutes);
 app.use(fakeAuth);
 app.use("/api/v1/users", usersRoutes);
+app.use("/api/v1/ai", aiRoutes);
 
 app.use((req, res, next) => {
   console.log(`[${req.method}] ${req.originalUrl}`);
